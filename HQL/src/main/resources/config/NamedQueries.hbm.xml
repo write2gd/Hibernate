@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <!-- This is named HQL query example (name of the query is globally unique)-->
+    <query name="namedStudentHql"><![CDATA[ from Student s where s.studentName= :sname]]></query>
+
+    <!-- This is named SQL query example (name of the query is globally unique)-->
+    <sql-query name="namedNativeStudentSQL"><![CDATA[select * from STUDENTS]]></sql-query>
+
+</hibernate-mapping>
