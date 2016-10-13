@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="false">
+    <class name="com.gd.demo.helloworld.xml.Hello" table="HELLO" lazy="false">
+        <id name="id" column="HELLO_ID" type="long">
+            <generator class="native" />
+        </id>
+        <property name="name" column="NAME" type="string" />
+        <property name="message" column="MESSAGE" type="string" />				
+    </class>
+</hibernate-mapping>
