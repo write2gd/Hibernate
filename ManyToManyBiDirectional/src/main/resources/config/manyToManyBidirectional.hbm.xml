@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.gd.demo.manytomanybidirectional.xml.Student" table="STUDENTS" lazy="false">
+        <id name="id" column="STUDENT_ID">
+            <generator class="native" />
+        </id>
+        <property name="studentName" column="STUDENT_NAME" />
+        <set name="courses" table="STUDENT_COURSE" lazy="false" cascade="save-update">
+            <key column="STUDENT_ID" not-null="true" />
+            <many-to-many class="com.gd.demo.manytomanybidirectional.xml.Course"
+                          column="COURSE_ID" />
+        </set>
+    </class>
+
+    <class name="com.gd.demo.manytomanybidirectional.xml.Course" table="COURSES" lazy="false">
+        <id name="id" column="COURSE_ID">
+            <generator class="native" />
+        </id>
+        <property name="courseName" column="COURSE_NAME" />
+        <set name="students" table="STUDENT_COURSE" lazy="false" inverse="true">
+            <key column="COURSE_ID" not-null="true" />
+            <many-to-many class="com.gd.demo.manytomanybidirectional.xml.Student"
+                          column="STUDENT_ID" />
+        </set>
+    </class>
+</hibernate-mapping>
